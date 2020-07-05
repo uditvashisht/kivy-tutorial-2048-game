@@ -1,0 +1,26 @@
+#: set padding 20
+
+FloatLayout:
+    Board:
+        id: board
+        size: [min(root.width, root.height)-2*padding]*2
+        size_hint: (None,None)
+        pos_hint:{'center_x':0.5, 'center_y': 0.5}
+        center : root.center
+
+
+<Tile>:
+    canvas:
+        Color:
+            rgb: self.color
+        BorderImage:
+            pos: self.pos
+            size: self.size
+            source : 'cell.png'
+    Label:
+        pos : root.pos
+        size : root.size
+        bold : True
+        color: root.number_color
+        font_size: root.font_size
+        text: str(root.number)
